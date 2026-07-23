@@ -171,7 +171,7 @@ def save_metrics(metrics: dict) -> None:
     Persist metrics to disk as JSON so CI/CD can inspect or archive them
     as a build artifact, independent of MLflow.
     """
-    MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    METRICS_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     with open(METRICS_PATH, "w") as f:
         json.dump(metrics, f, indent=2)
